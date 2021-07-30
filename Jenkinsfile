@@ -1,6 +1,4 @@
 def commit_id
-pipline {
-def commit_id
 pipeline {
 agent any
 stages {
@@ -31,7 +29,7 @@ echo "docker image build"
 stage("deploy") {
 steps {
 sh "sed -i -r 's|richardchesterwood/k8s-fleetman-position-simulator:release2|position-simulator:${commit_id}|' workloads.yaml"
-sh "kubectl apply -f  workloads.yaml"
+sh "kubectl apply -f workloads.yaml"
 }
 }
 }
